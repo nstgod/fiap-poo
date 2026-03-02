@@ -2,9 +2,9 @@ package br.com.fiapride.model;
 
 public class Passageiro {
 
-    public String nome;
-    public String cpf;
-    public double saldo;
+    private String nome;
+    private String cpf;
+    private double saldo;
 
     public Passageiro(String nome, String cpf) {
         this.nome = nome;
@@ -19,6 +19,34 @@ public class Passageiro {
         }
         this.saldo += valor;
         System.out.println("Recarga realizada. Novo saldo: " + this.saldo);
+    }
+
+    public double getSaldo() {
+        return this.saldo;
+    }
+
+    private void setSaldo(double valor) {
+        if (valor >=0) {
+            this.saldo = valor;
+        } else {
+            System.out.println("Erro de segurança: Tentativa de definir saldo negativo bloqueada!");
+        }
+    }
+
+    public String getNome() {
+        return this.nome;
+    }
+
+    private void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getCpf() {
+        return this.cpf;
+    }
+
+    private void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
     public void pagarViagem(double custo) {
