@@ -2,32 +2,31 @@ package br.com.fiapride.model;
 
 public class Garrafa {
 
-    private String Cor;
-    private String Material;
+    private String cor;
+    private String material;
     private double capacidadeEmMl;
     private double liquidoGarrafa;
 
-    public Garrafa(String Cor, String Material, double capacidadeEmMl){
-        this.Cor = Cor;
-        this.Material = Material;
+    public Garrafa(String cor, String material, double capacidadeEmMl){
+        this.cor = cor;
+        this.material = material;
         this.capacidadeEmMl = capacidadeEmMl;
-        this.liquidoGarrafa = 0.0;
     }
 
     public String getCor() {
-        return this.Cor;
+        return this.cor;
     }
 
-    private void setCor(String Cor) {
-        this.Cor = Cor;
+    private void setCor(String cor) {
+        this.cor = cor;
     }
 
     public String getMaterial() {
-        return this.Material;
+        return this.material;
     }
 
-    private void setMaterial(String Material) {
-        this.Material = Material;
+    private void setMaterial(String material) {
+        this.material = material;
     }
 
     public void adicionarMl(double valor) {
@@ -36,7 +35,8 @@ public class Garrafa {
             return;
         }
         this.liquidoGarrafa += valor;
-        System.out.println("Foram adicionados " + this.liquidoGarrafa + "ml na garrafa");
+        System.out.println("Foram adicionados " + valor + " ml na garrafa");
+        System.out.println("A garrafa está com: " + this.liquidoGarrafa + " ml");
     }
 
     public double getLiquidoGarrafa() {
@@ -44,7 +44,7 @@ public class Garrafa {
     }
 
     private void setLiquidoGarrafa(double liquidoGarrafa) {
-            this.liquidoGarrafa = liquidoGarrafa;
+        this.liquidoGarrafa = liquidoGarrafa;
     }
 
     public double getCapacidadeEmMl() {
@@ -52,6 +52,10 @@ public class Garrafa {
     }
 
     private void setCapacidadeEmMl(double capacidadeEmMl) {
+        if (capacidadeEmMl <= 0 || capacidadeEmMl > 3000) {
+            System.out.println("A capacidade precisa ser maior que 0ml e menor ou igual a 3000ml");
+            return;
+        }
         this.capacidadeEmMl = capacidadeEmMl;
     }
 }
