@@ -52,10 +52,18 @@ public class Garrafa {
     }
 
     private void setCapacidadeEmMl(double capacidadeEmMl) {
-        if (capacidadeEmMl <= 0 || capacidadeEmMl > 3000) {
-            System.out.println("A capacidade precisa ser maior que 0ml e menor ou igual a 3000ml");
+        this.capacidadeEmMl = capacidadeEmMl;
+    }
+
+    public void beberLiquido(double quantidade){
+        if (quantidade <= 0) {
+            System.out.println("Erro: Quantidade invalida para beber");
+        }
+        if (liquidoGarrafa < quantidade) {
+            System.out.println("Erro: Quantidade insuficiente para beber");
             return;
         }
-        this.capacidadeEmMl = capacidadeEmMl;
+        this.liquidoGarrafa -= quantidade;
+        System.out.println("Foi bebido: " + quantidade + "ml da garrafa, Sobraram: " + this.liquidoGarrafa + "ml na garrafa" );
     }
 }
