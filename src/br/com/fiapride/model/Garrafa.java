@@ -52,6 +52,10 @@ public class Garrafa {
     }
 
     private void setCapacidadeEmMl(double capacidadeEmMl) {
+        if (capacidadeEmMl <= 0 || capacidadeEmMl > 3000) {
+            System.out.println("A capacidade precisa ser maior que 0ml e menor ou igual a 3000ml");
+            return;
+        }
         this.capacidadeEmMl = capacidadeEmMl;
     }
 
