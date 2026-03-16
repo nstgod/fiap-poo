@@ -7,8 +7,8 @@ public class Garrafa {
     private double capacidadeEmMl;
     private double liquidoGarrafa;
 
-    public Garrafa(String cor, String material, double capacidadeEmMl){
-        this.cor = cor;
+    public Garrafa(String cor, String material, double capacidadeEmMl) {
+        this.setCor(cor);
         this.material = material;
         this.capacidadeEmMl = capacidadeEmMl;
     }
@@ -17,16 +17,8 @@ public class Garrafa {
         return this.cor;
     }
 
-    private void setCor(String cor) {
-        this.cor = cor;
-    }
-
     public String getMaterial() {
         return this.material;
-    }
-
-    private void setMaterial(String material) {
-        this.material = material;
     }
 
     public void adicionarMl(double valor) {
@@ -51,14 +43,6 @@ public class Garrafa {
         return this.capacidadeEmMl;
     }
 
-    private void setCapacidadeEmMl(double capacidadeEmMl) {
-        if (capacidadeEmMl <= 0 || capacidadeEmMl > 3000) {
-            System.out.println("A capacidade precisa ser maior que 0ml e menor ou igual a 3000ml");
-            return;
-        }
-        this.capacidadeEmMl = capacidadeEmMl;
-    }
-
     public void beberLiquido(double quantidade){
         if (quantidade <= 0) {
             System.out.println("Erro: Quantidade invalida para beber");
@@ -69,5 +53,14 @@ public class Garrafa {
         }
         this.liquidoGarrafa -= quantidade;
         System.out.println("Foi bebido: " + quantidade + "ml da garrafa, Sobraram: " + this.liquidoGarrafa + "ml na garrafa" );
+    }
+
+    private void setCor(String novaCor) {
+        if (novaCor != null && !novaCor.trim().isEmpty()) {
+            this.cor = novaCor;
+            System.out.println("✅ Sucesso: A cor agora é " + this.cor);
+        } else {
+            System.out.println("❌ Erro de Validação: A cor informada é inválida!");
+        }
     }
 }
