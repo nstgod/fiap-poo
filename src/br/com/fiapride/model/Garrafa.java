@@ -8,7 +8,7 @@ public class Garrafa {
     private double liquidoGarrafa;
 
     public Garrafa(String cor, String material, double capacidadeEmMl) {
-        this.setCor(cor);
+        this.cor = cor;
         this.material = material;
         this.capacidadeEmMl = capacidadeEmMl;
     }
@@ -53,14 +53,5 @@ public class Garrafa {
         }
         this.liquidoGarrafa -= quantidade;
         System.out.println("Foi bebido: " + quantidade + "ml da garrafa, Sobraram: " + this.liquidoGarrafa + "ml na garrafa" );
-    }
-
-    private void setCor(String novaCor) {
-        if (novaCor != null && !novaCor.trim().isEmpty()) {
-            this.cor = novaCor;
-            System.out.println("✅ Sucesso: A cor agora é " + this.cor);
-        } else {
-            System.out.println("❌ Erro de Validação: A cor informada é inválida!");
-        }
     }
 }
