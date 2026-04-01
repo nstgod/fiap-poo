@@ -1,28 +1,32 @@
 package br.com.fiapride;
 
 import br.com.fiapride.model.Garrafa;
+import br.com.fiapride.model.Tampa;
 
 public class TesteMeuObjeto {
     public static void main(String[] args){
 
-        Garrafa minhaGarrafa = new Garrafa("Rosa", "Plastico", 1000);
-        System.out.println("Adicionando liquido minha garrafa: ");
-        minhaGarrafa.adicionarMl(1000);
+        Tampa tampaTermica = new Tampa("Preta", "Rosca");
 
-        Garrafa guilhermeGarrafa = new Garrafa("Vermelha", "Metal", 1000);
-        System.out.println("Adicionando liquido na garrafa do guilherme: ");
-        guilhermeGarrafa.adicionarMl(1000);
+        Garrafa minhaGarrafa = new Garrafa(tampaTermica, "Aço Inox", 1000.0);
 
-        System.out.println("--- Sistema FiapRide ---");
+        System.out.println("--- DADOS DA ASSOCIAÇÃO ---");
 
-        System.out.println("Minha garrafa é: " + minhaGarrafa.getCor() + " || O material é: " + minhaGarrafa.getMaterial() + " || E a capacidade em ml é: " + minhaGarrafa.getCapacidadeEmMl() + "ml" + " || A quantidade de liquido em ml na garrafa é: " + minhaGarrafa.getLiquidoGarrafa());
+        System.out.println("Garrafa criada com material: " + minhaGarrafa.getMaterial());
+        System.out.println("A cor da tampa associada é: " + minhaGarrafa.getTampa().getCor());
 
-        System.out.println("A garrafa do guilherme é: " + guilhermeGarrafa.getCor() + " || O material dela é: " + guilhermeGarrafa.getMaterial() + " || E a capacidade em ml é: " + guilhermeGarrafa.getCapacidadeEmMl() + "ml" + " || A quantidade de liquido em ml na garrafa é: " + guilhermeGarrafa.getLiquidoGarrafa());
 
-        System.out.println("Bebendo liquido da minha garrafa");
-        minhaGarrafa.beberLiquido(300);
-        System.out.println("Bebendo liquido da garrafa do guilherme");
-        guilhermeGarrafa.beberLiquido(1001);
+        System.out.println("\n--- TESTANDO AÇÕES E LIMITES ---");
+
+        // Testando o limite da capacidade
+        minhaGarrafa.adicionarMl(800);
+        minhaGarrafa.adicionarMl(300);
+
+        System.out.println("---------------------------------");
+
+        // Testando os limites de beber
+        minhaGarrafa.beberLiquido(200);
+        minhaGarrafa.beberLiquido(900);
 
     }
 }
